@@ -1,5 +1,5 @@
 {
-    "name": "kittinan/CryptTime-PHP",
+    "name": "kittinan/crypt-time-php",
     "description": "CryptTime-PHP is a simple class to encrypt string with timeout. the encryption use AES128/PKCS7. ",
     "require": {
         "php": ">=5.3.0"
