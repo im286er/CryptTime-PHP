@@ -1,7 +1,7 @@
 CryptTime-PHP
 =========
 [![Build Status](https://travis-ci.org/kittinan/CryptTime-PHP.svg?branch=master)](https://travis-ci.org/kittinan/CryptTime-PHP)
-[![Coverage Status](https://coveralls.io/repos/kittinan/CryptTime-PHP/badge.png)](https://coveralls.io/r/kittinan/CryptTime-PHP)
+[![Coverage Status](https://coveralls.io/repos/kittinan/CryptTime-PHP/badge.png?branch=master)](https://coveralls.io/r/kittinan/CryptTime-PHP?branch=master)
 
 CryptTime-PHP is a simple class to encrypt string with timeout. the encryption use AES128/PKCS7.
 
