@@ -5,17 +5,24 @@ CryptTime-PHP
 
 CryptTime-PHP is a simple class to encrypt string with timeout. the encryption use AES128/PKCS7.
 
-#### Requirement
+## Requirement
 * PHP 5.3+
 * php-mcrypt
 
+## Composer
+This plugin on the Packagist.
 
-#### How to use.
+[https://packagist.org/packages/kittinan/crypt-time-php](https://packagist.org/packages/kittinan/crypt-time-php)
+
+
+
+
+## Quick Start.
 ```php
 
 $plainText = 'Hello World';
 
-$cryptTime = \KITTINAN\CryptTime\CryptTime::getInstance();
+$cryptTime = \KS\CryptTime::getInstance();
 
 $cipherText = $cryptTime->encrypt($plainText);  //Default timeout is 86400 seconds (1 day)
 
@@ -28,7 +35,7 @@ if you want to encrypt string with 10 minutes timeout.
 
 $plainText = 'Hello World';
 
-$cryptTime = \KITTINAN\CryptTime\CryptTime::getInstance();
+$cryptTime = \KS\CryptTime::getInstance();
 
 $cipherText = $cryptTime->encrypt($plainText, 600);  //10 minutes = 600 seconds
 
@@ -38,7 +45,7 @@ $decryptText = $cryptTime->decrypt($cipherText);
 you can set IV and Key
 ```php
 
-$cryptTime = \KITTINAN\CryptTime\CryptTime::getInstance();
+$cryptTime = \KS\CryptTime::getInstance();
 $cryptTime->setIV('MyNewInitialValue');
 $cryptTime->setKey('MyNewKeyMyNewKeyMyNewKey');
 ```
