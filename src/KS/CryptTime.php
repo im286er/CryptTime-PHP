@@ -8,7 +8,7 @@
  * 
  * 
  */
-namespace Kittinan\CryptTime;
+namespace KS;
 
 class CryptTime {
   
@@ -24,10 +24,10 @@ class CryptTime {
   }
   
   public static function getInstance() {
-    if (empty(\Kittinan\CryptTime\CryptTime::$instance)) {
-      \Kittinan\CryptTime\CryptTime::$instance = new \Kittinan\CryptTime\CryptTime();
+    if (empty(\KS\CryptTime::$instance)) {
+      \KS\CryptTime::$instance = new \KS\CryptTime();
     }
-    return  \Kittinan\CryptTime\CryptTime::$instance;
+    return  \KS\CryptTime::$instance;
   }
   
   public function setIV($iv) {

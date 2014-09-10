@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../src/CryptTime.php';
+require_once __DIR__.'/../src/KS/CryptTime.php';
 
 /**
  * @property Crypt $Crypt
@@ -9,7 +9,7 @@ class CryptTimeTest extends PHPUnit_Framework_TestCase {
   private $Crypt;
   
   function __construct() {
-    $this->Crypt = new \Kittinan\CryptTime\CryptTime();
+    $this->Crypt = new \KS\CryptTime();
   }
   
   public function testSetIV() {
