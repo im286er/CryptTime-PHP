@@ -5,4 +5,15 @@ php:
   - 5.3
   - hhvm
 
-script: phpunit ./test
+before_script:
+ - wget http://getcomposer.org/composer.phar
+ - php composer.phar install --dev --no-interaction
+
+script: 
+  - phpunit ./test
+  - mkdir -p build/logs
+  - phpunit --coverage-clover build/logs/clover.xml ./test
+
+after_script:
+ - php vendor/bin/coveralls -v
+
