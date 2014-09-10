@@ -3,6 +3,10 @@ CryptTime-PHP
 
 CryptTime-PHP is a simple class to encrypt string with timeout. the encryption use AES128/PKCS7.
 
+#### Requirement
+* PHP 5.3+
+* php-mcrypt
+
 Easy to use.
 ```php
 
