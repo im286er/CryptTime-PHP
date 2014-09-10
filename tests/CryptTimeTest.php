@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../CryptTime.php';
+require_once __DIR__.'/../src/CryptTime.php';
 
 /**
  * @property Crypt $Crypt
