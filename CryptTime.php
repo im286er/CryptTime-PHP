@@ -2,8 +2,9 @@
 /*
  * CryptTime
  * Author: Kittinan
+ * Description: Simple Wrapper PHP Class For Encrypt String with timeout
  * 
- * AES128 + PKCS7
+ * Encryption : AES128 + PKCS7
  * 
  * 
  */
@@ -11,9 +12,10 @@ namespace Kittinan\CryptTime;
 
 class CryptTime {
   
+  public static $instance;
   
   private $IV = '0000000000000000';
-  private $KEY = '00000000';
+  private $KEY = '00000000000000000000000000000000';
   private $SEPERATOR = 'XXXXX_XXXXX';
   
   
@@ -21,16 +23,49 @@ class CryptTime {
     
   }
   
+  public static function getInstance() {
+    if (empty(\Kittinan\CryptTime\CryptTime::$instance)) {
+      \Kittinan\CryptTime\CryptTime::$instance = new \Kittinan\CryptTime\CryptTime();
+    }
+    return  \Kittinan\CryptTime\CryptTime::$instance;
+  }
+  
   public function setIV($iv) {
+    $IVLength = strlen($iv);
+    
+    if ($IVLength > 16) {
+      $iv = substr($iv, 0, 16);
+    }else if ($IVLength < 16) {
+      $iv = str_pad($iv, 16, '0', STR_PAD_RIGHT);
+    }
+    
     $this->IV = $iv;
   }
   
+  public function getIV() {
+    return $this->IV;
+  }
+  
   public function setKey($key) {
+    $keyLength = strlen($key);
+    
+    if (empty($key)) {
+      $key = '00000000000000000000000000000000';
+    } else if ($keyLength > 32) {
+      $key = substr($key, 0, 32);
+    }else if ($keyLength < 32) {
+      $key = str_pad($key, 32, '0', STR_PAD_RIGHT);
+    }
+    
     $this->KEY = $key;
   }
   
-  public function encrypt($plainText, $availableTime = 86400) {
-    $endTime = time() + $availableTime;
+  public function getKey() {
+    return $this->KEY;
+  }
+  
+  public function encrypt($plainText, $timeout = 86400) {
+    $endTime = time() + $timeout;
     $str = rand(0x112, 0xDEADC0DE).$this->SEPERATOR.$endTime.$this->SEPERATOR.$plainText;
     return $this->base64url_encode($this->_encryptAES128($this->IV, $this->KEY, $str));
   }
@@ -41,6 +76,7 @@ class CryptTime {
     $list = explode($this->SEPERATOR, $str);
     
     if (count($list) < 3) {
+      //Can't Parse String
       return false;
     }
     
