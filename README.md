@@ -1,5 +1,6 @@
 CryptTime-PHP
 =========
+[![Coverage Status](https://coveralls.io/repos/kittinan/CryptTime-PHP/badge.png)](https://coveralls.io/r/kittinan/CryptTime-PHP)
 
 CryptTime-PHP is a simple class to encrypt string with timeout. the encryption use AES128/PKCS7.
 
