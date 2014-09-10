@@ -6,7 +6,7 @@ CryptTime-PHP is a simple class to encrypt string with timeout. the encryption u
 Easy to use.
 ```php
 
-$plainText = ''Hello World';
+$plainText = 'Hello World';
 
 $cryptTime = \KITTINAN\CryptTime\CryptTime::getInstance();
 
@@ -19,7 +19,7 @@ $decryptText = $cryptTime->decrypt($cipherText);
 if you want to encrypt string with 10 minutes timeout.
 ```php
 
-$plainText = ''Hello World';
+$plainText = 'Hello World';
 
 $cryptTime = \KITTINAN\CryptTime\CryptTime::getInstance();
 
