@@ -2,6 +2,7 @@ CryptTime-PHP
 =========
 [![Build Status](https://travis-ci.org/kittinan/CryptTime-PHP.svg?branch=master)](https://travis-ci.org/kittinan/CryptTime-PHP)
 [![Coverage Status](https://coveralls.io/repos/kittinan/CryptTime-PHP/badge.png?branch=master)](https://coveralls.io/r/kittinan/CryptTime-PHP?branch=master)
+[![License](https://poser.pugx.org/kittinan/crypt-time-php/license.svg)](https://packagist.org/packages/kittinan/crypt-time-php)
 
 CryptTime-PHP is a simple class to encrypt string with timeout. the encryption use AES128/PKCS7.
 
@@ -50,5 +51,7 @@ $cryptTime->setIV('MyNewInitialValue');
 $cryptTime->setKey('MyNewKeyMyNewKeyMyNewKey');
 ```
 
-
+License
+=======
+The MIT License (MIT)
 
