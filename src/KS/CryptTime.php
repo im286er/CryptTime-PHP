@@ -18,6 +18,7 @@ class CryptTime {
   private $KEY = '00000000000000000000000000000000';
   private $SEPERATOR = 'XXXXX_XXXXX';
   
+  private $TimeOut = 86400;
   
   function __construct() {
     
@@ -64,7 +65,20 @@ class CryptTime {
     return $this->KEY;
   }
   
-  public function encrypt($plainText, $timeout = 86400) {
+  public function setTimeOut($timeout) {
+    if (!empty($timeout) && is_numeric($timeout) == true) {
+      $this->TimeOut = $timeout;
+    }
+  }
+  
+  public function getTimeOut() {
+    return $this->TimeOut;
+  }
+  
+  public function encrypt($plainText, $timeout = null) {
+    if (empty($timeout)) {
+      $timeout = $this->TimeOut;
+    }
     $endTime = time() + $timeout;
     $str = rand(0x112, 0xDEADC0DE).$this->SEPERATOR.$endTime.$this->SEPERATOR.$plainText;
     return $this->base64url_encode($this->_encryptAES128($this->IV, $this->KEY, $str));

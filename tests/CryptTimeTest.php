@@ -64,4 +64,11 @@ class CryptTimeTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(false, $result);
   }
   
+  public function testSetTimeOut() {
+    $timeout = 86400 * 30;
+    $this->Crypt->setTimeOut($timeout);
+    $result = $this->Crypt->getTimeOut();
+    $this->assertEquals($timeout, $result);
+  }
+  
 }
